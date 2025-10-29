@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端登录页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .login-section {
+            flex: 1;
+            padding: 40px;
+        }
+        .design-notes {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 40px;
+            border-left: 1px solid #e9ecef;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo h1 {
+            color: #333;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        .design-notes h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .note-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .note-item h3 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .note-item p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                max-width: 400px;
+            }
+            .design-notes {
+                border-left: none;
+                border-top: 1px solid #e9ecef;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-section">
+            <div class="logo">
+                <h1>欢迎登录</h1>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">账号</label>
+                    <input type="text" id="username" placeholder="请输入手机号或邮箱" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" placeholder="请输入密码" required>
+                </div>
+                <button type="submit" class="login-btn">登录</button>
+            </form>
+        </div>
+        <div class="design-notes">
+            <h2>设计说明</h2>
+            <div class="note-item">
+                <h3>色彩方案</h3>
+                <p>采用渐变背景提升视觉层次，主色调为蓝紫色系，营造专业且现代的氛围。</p>
+            </div>
+            <div class="note-item">
+                <h3>布局设计</h3>
+                <p>左右分栏布局，左侧为登录表单，右侧为设计说明。移动端自动切换为垂直布局。</p>
+            </div>
+            <div class="note-item">
+                <h3>交互体验</h3>
+                <p>输入框聚焦时有边框高亮和阴影效果，登录按钮有悬停和点击动画反馈。</p>
+            </div>
+            <div class="note-item">
+                <h3>用户体验</h3>
+                <p>简洁的表单设计，清晰的视觉层次，合理的间距和字体大小确保易读性。</p>
+            </div>
+            <div class="note-item">
+                <h3>响应式适配</h3>
+                <p>完美适配各种移动设备屏幕尺寸，确保在所有设备上都有良好的显示效果。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username && password) {
+                // 模拟登录成功
+                alert('登录成功！欢迎回来！');
+                // 这里可以添加实际的登录逻辑
+            } else {
+                alert('请填写完整的账号和密码！');
+            }
+        });
+
+        // 添加输入框交互效果
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
